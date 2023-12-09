@@ -90,8 +90,6 @@ cd ..
 git clone https://aur.archlinux.org/vmware-workstation.git
 cd vmware-workstation
 makepkg -si
-#Serial:
-#4A4RR-813DK-M81A9-4U35H-06KND
 
 #Instalar DisplayLink
 cd /tmp/
