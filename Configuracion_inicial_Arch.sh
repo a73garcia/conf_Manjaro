@@ -1,3 +1,4 @@
+#!/bin/sh
 #Configuracion inicial Arch
 #--------------------------
 
