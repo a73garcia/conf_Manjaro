@@ -68,7 +68,7 @@ sudo nano /etc/httpd/conf/extra/phpmyadmin.conf
     </Directory>
 
 sudo nano /etc/webapps/phpmyadmin/config.inc.php
-    $cfg['blowfish_secret'] = 'ESCRIBE_UNA_CLAVE_LARGA_Y_COMPLEJA'; /* YOU MUST FILL IN THIS FOR COOKIE AUTH!$ /**
+    $cfg['blowfish_secret'] = 'JOFw435365IScA&Q!cDugr!lSfuAz*OW'; /* YOU MUST FILL IN THIS FOR COOKIE AUTH!$ /**
 
     #Añadimos al final
     $cfg['TempDir'] = '/tmp/phpmyadmin';
