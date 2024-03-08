@@ -1,0 +1,43 @@
+1. Para ver la lista de comando disponibles solo hay que escribir en el terminal
+
+cyberghostvpn
+
+2. Conectarse rápidamente a uno de los países disponibles simplemente abra una ventana de Terminal y escriba:
+
+sudo cyberghostvpn --traffic --country-code Chile --connect
+
+Pulse Entra y estará conectado a uno de nuestros servidores de los Chile.
+
+Un vez que nos conectamos, nos aparecera en pantalla en mensaje de que la conexion ha sido establecida
+
+Tambien se puede entrar indicacando el codigo del pais a que nos queremos conectar
+
+sudo cyberghostvpn --traffic --country-code DE --connect
+
+
+3. Ver un listado de todos los paises con su respectivo codigo de pais
+
+cyberghostvpn --traffic --country-code
+
+
+4. Verificacion de que la conexion VPN se encuentra establecida
+
+cyberghostvpn --status
+
+
+5. Conectarse a una ciudad (y servidor concreto)
+
+5.1. Ver todas las ciudad a kas que se puede conectar de un pais:
+
+sudo cyberghostvpn -traffic--code country-code EE.UU.
+
+5.2. Una vez que sabemos las ciudades, podemos ver los servidores que se encuentran disponibles en una ciudad:
+
+sudo cyberghostvpn -traffic --country-code US --city "New York"
+
+5.3. Digamos que queremos conectarnos a ' newyork-s433-i01', sólo tenemos que escribir este comando:
+
+sudo cyberghostvpn --traffic --country-code US --city "New York" --server newyork-s433-i01 --connect
+
+
+
