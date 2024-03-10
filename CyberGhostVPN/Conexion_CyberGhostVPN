@@ -1,43 +1,168 @@
-1. Para ver la lista de comando disponibles solo hay que escribir en el terminal
+# CyberGhost VPN
 
+## Opciones
+
+Para ver las opciones disponibles en la aplicacion a traves de consola
+
+```
 cyberghostvpn
+```
 
-2. Conectarse rápidamente a uno de los países disponibles simplemente abra una ventana de Terminal y escriba:
+Nos imprimira en pantallas las opciones disponibles
 
+```
+❯ cyberghostvpn
+
+cyberghost - 1.4.1
+
+Available arguments:
+
+
+  SERVICES
+    --service-type <serviceName>  : Select a service from list of services.
+    --openvpn                     : Select OpenVPN as service.
+    --wireguard                   : Select Wireguard as service.
+
+
+  SERVER TYPES
+    --server-type <serverType>    : Connect to specified server type. Available types: traffic, streaming and torrent. Default value: traffic.
+    --traffic                     : Show only traffic countries.
+    --streaming <serviceName>     : Get streaming service.
+    --torrent                     : Show only torrent countries.
+
+
+  OTHER COMMANDS
+    --country-code <countryCode>  : Connect a specified country. If argument city is not set will be connected to random city from chosen country.
+    --connection <connection>     : Set connection type for OpenVPN to UDP or TCP. Default value: UDP
+    --city <cityName>             : Connect a specified city from a country.
+    --server <serverName>         : Connect to a specified server.
+    --connect                     : Prepare a new VPN connection.
+    --status                      : Check if we have VPN connection opened.
+    --stop                        : Terminate all VPN connection.
+    --setup                       : Setup Cyberghost application.
+    --uninstall                   : Uninstall Cyberghost application.
+
+❯ 
+
+```
+
+## Conexión rápida
+
+Para conectarse rápidamente a uno de los países disponibles simplemente abra una ventana de Terminal y escriba:
+
+```
 sudo cyberghostvpn --traffic --country-code Chile --connect
+```
 
-Pulse Entra y estará conectado a uno de nuestros servidores de los Chile.
+Pulsamos Intro. Un vez que nos conectamos, nos aparecera en pantalla en mensaje de que la conexion ha sido establecida
 
-Un vez que nos conectamos, nos aparecera en pantalla en mensaje de que la conexion ha sido establecida
+```
+❯ sudo cyberghostvpn --traffic --country-code CL --connect
+Prepare OpenVPN connection ...
+Select server ... santiago-s402-i09
+Connecting ... 
+VPN connection established.
+```
 
-Tambien se puede entrar indicacando el codigo del pais a que nos queremos conectar
+Esta mismo comando se puede utilizar introduciendo el código del país al que nos queremos conectar
 
-sudo cyberghostvpn --traffic --country-code DE --connect
+```
+sudo cyberghostvpn --traffic --country-code CL --connect
+```
 
+## Comprobar paises y codigo
 
-3. Ver un listado de todos los paises con su respectivo codigo de pais
+Siqueremos saber los paises y sus códigos solo tenemos que introducir el siguiente comando
 
+```
 cyberghostvpn --traffic --country-code
+```
 
+```
+❯ cyberghostvpn --traffic --country-code
 
-4. Verificacion de que la conexion VPN se encuentra establecida
+Perform authentication ...
++-----+----------------------+--------------+
+| No. |     Country Name     | Country Code |
++-----+----------------------+--------------+
+|  1  |       Andorra        |      AD      |
+|  2  | United Arab Emirates |      AE      |
+|  3  |       Albania        |      AL      |
+|  4  |       Armenia        |      AM      |
+|  5  |      Argentina       |      AR      |
+|  6  |       Austria        |      AT      |
+|  7  |      Australia       |      AU      |
+|  8  | Bosnia & Herzegovina |      BA      |
+|  9  |      Bangladesh      |      BD      |
+|  10 |       Belgium        |      BE      |
 
+```
+
+## Comprobación de conexión
+
+Si queremos comprobar si la VPN esta levantada
+
+```
 cyberghostvpn --status
+```
+Nos mostrará el estado de la conexión
+
+```
+❯ cyberghostvpn --status
+VPN connection found.
+```
+
+## Conectarse a una ciudad (y servidor concreto)
+
+#### Ver todas las ciudad a las que se puede conectar de un pais:
+
+```
+sudo cyberghostvpn -traffic --country-code CL
+```
+Este nos lista el listado de ciudades disponibles en el país
+
+```
++-----+----------+----------+------+
+| No. |   City   | Instance | Load |
++-----+----------+----------+------+
+|  1  | Santiago |    12    | 49%  |
++-----+----------+----------+------+
+❯ 
+```
+
+#### Una vez que sabemos las ciudades, podemos ver los servidores que se encuentran disponibles en una ciudad:
+
+```
+sudo cyberghostvpn -traffic --country-code CL --city "Santiago"
+```
+
+Este nos lista los servidores disponibles en la ciudad y su estado
 
 
-5. Conectarse a una ciudad (y servidor concreto)
+```
+❯ sudo cyberghostvpn -traffic --country-code CL --city "Santiago"
++-----+----------+-------------------+------+
+| No. |   City   |      Instance     | Load |
++-----+----------+-------------------+------+
+|  1  | Santiago | santiago-s402-i01 | 27%  |
+|  2  | Santiago | santiago-s402-i02 | 39%  |
+|  3  | Santiago | santiago-s402-i03 | 45%  |
+|  4  | Santiago | santiago-s402-i04 | 45%  |
+|  5  | Santiago | santiago-s402-i05 | 52%  |
+|  6  | Santiago | santiago-s402-i06 | 36%  |
+|  7  | Santiago | santiago-s402-i07 | 30%  |
+|  8  | Santiago | santiago-s402-i08 | 42%  |
+|  9  | Santiago | santiago-s402-i09 | 82%  |
+|  10 | Santiago | santiago-s402-i10 | 45%  |
+|  11 | Santiago | santiago-s402-i11 | 58%  |
+|  12 | Santiago | santiago-s402-i12 | 64%  |
++-----+----------+-------------------+------+
 
-5.1. Ver todas las ciudad a kas que se puede conectar de un pais:
+```
 
-sudo cyberghostvpn -traffic--code country-code EE.UU.
+#### Digamos que queremos conectarnos a ' newyork-s433-i01', sólo tenemos que escribir este comando:
 
-5.2. Una vez que sabemos las ciudades, podemos ver los servidores que se encuentran disponibles en una ciudad:
-
-sudo cyberghostvpn -traffic --country-code US --city "New York"
-
-5.3. Digamos que queremos conectarnos a ' newyork-s433-i01', sólo tenemos que escribir este comando:
-
+```
 sudo cyberghostvpn --traffic --country-code US --city "New York" --server newyork-s433-i01 --connect
-
-
+```
 
